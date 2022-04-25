@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+  gmr_gin:
+    container_name: gmg1
+    image: golang:1.17.6-stretch
+    command: /bin/bash
+    stdin_open: true
+    tty: true
+    environment:      
+      - ECHO_HOST=ec_gin
+      - ECHO_PORT=8080
+    ports:
+      - 8080:8080
+    volumes:
+      - ./gin/:/gin/
+volumes:
+  dataVolume:
+
+networks:
+  default: 
+    external: true
+    name: gmr
+
